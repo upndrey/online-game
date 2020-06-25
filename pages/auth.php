@@ -1,8 +1,8 @@
 <html>
 <head>
     <title>Escape from Barnaul</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/index.css">
 </head>
 <body>
 <div id="wrapper">

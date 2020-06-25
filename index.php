@@ -15,5 +15,8 @@ if(!$_SESSION['login']) {
 <body>
 <div id="wrapper"></div>
 </body>
+<script>
+    let js_page = '<? echo $_SESSION['page'];?>';
+</script>
 <script src="js/app.js" type="module"></script>
 </html>

@@ -22,6 +22,12 @@ Menu.prototype.open = function () {
     while(this.dom.firstChild) {
         this.dom.removeChild(this.dom.lastChild);
     }
+
+    if(js_page !== "menu") {
+        this.links[js_page].open.call(this.links[js_page]);
+        return;
+    }
+
     let menuDom = document.createElement("form");
     menuDom.className = "menu";
     menuDom.method = "post";
@@ -32,8 +38,6 @@ Menu.prototype.open = function () {
         menuElemDom.className = "menu__elem";
         menuElemDom.name = elem;
         menuElemDom.value = elem;
-        if(elem !== "exit")
-            menuElemDom.addEventListener("click", this.links[elem].open.bind(this.links[elem]));
         menuDom.appendChild(menuElemDom);
     }
     this.dom.appendChild(menuDom);

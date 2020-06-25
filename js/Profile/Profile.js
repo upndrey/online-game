@@ -12,11 +12,15 @@ Profile.prototype.open = function () {
     while(this.dom.firstChild) {
         this.dom.removeChild(this.dom.lastChild);
     }
-    let profileDom = document.createElement("div");
-    let backDom = document.createElement("div");
+    let profileDom = document.createElement("form");
+    profileDom.className = "menu";
+    profileDom.method = "post";
+    profileDom.action = "../php/index.php";
+    let backDom = document.createElement("input");
     backDom.className = "menu__elem";
-    backDom.innerText = "menu";
-    backDom.addEventListener("click", this.back);
+    backDom.type = "submit";
+    backDom.value = "menu";
+    backDom.name = "menu";
     profileDom.appendChild(backDom);
     this.dom.appendChild(profileDom);
 
@@ -24,9 +28,5 @@ Profile.prototype.open = function () {
     inventory.open();
 };
 
-Profile.prototype.back = function () {
-    let menu = new Menu();
-    menu.open();
-};
 
 export default Profile;
