@@ -44,21 +44,33 @@ Inventory.prototype.drawItems = async function (canvas, ctx, xCount, yCount) {
         }
     }
 
-    let url = "../php/getItemList.php";
-    let promise = fetch(url);
+    let urlGet = "../php/getItemList.php";
+    let urlSend = "../php/sendItemList.php";
+    let promise = fetch(urlGet);
     return promise.then((response) => {
         return response.json();
     }).then((result) => {
-        for(let i = 0; i < result.size(); i++) {
+        for(let i = 0; i < result.size; i++) {
             if(result[i].pos_x == null) {
                 let [pos_x, pos_y] = this.insertObject(itemsList, result[i][0].width, result[i][0].height);
+                let response = fetch(urlSend, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json;charset=utf-8'
+                    },
+                    body: JSON.stringify(user)
+                });
             }
         }
     });
 };
 
 Inventory.prototype.insertObject = function (arr, width, height) {
-
+    for(let i = 0; i < arr.size; i++) {
+        for(let j = 0; j < arr[0].size; j++) {
+            
+        }
+    }
 };
 
 export default Inventory;
